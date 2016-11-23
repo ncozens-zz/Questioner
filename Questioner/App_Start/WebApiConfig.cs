@@ -16,8 +16,8 @@ namespace Questioner
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{question}/{yes}",
+                defaults: new { yes = RouteParameter.Optional }
             );
         }
     }

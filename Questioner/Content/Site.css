@@ -22,3 +22,63 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* bootstrap overrides */
+.form-control {
+    border-radius: 0;
+}
+
+.btn-info {
+    border-radius: 0;
+    width: 100%;
+    -webkit-box-shadow: 10px 10px 19px 0px rgba(163,163,163,1);
+    -moz-box-shadow: 10px 10px 19px 0px rgba(163,163,163,1);
+    box-shadow: 10px 10px 19px 0px rgba(163,163,163,1);
+}
+
+.container .jumbotron {
+    border-radius: 0;
+}
+
+
+
+.table-striped > .row-data:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped .row {
+    padding: 8px 0;
+}
+
+.table-border {
+    border: 2px solid #772953;
+}
+
+
+.table-head {
+    background-color: #772953;
+    color: #fff;
+    font-weight: 700;
+    border-bottom: 1px solid grey;
+}
+
+.btn-success, .btn-warning {
+    border-radius: 0;
+    width: 45%;
+    height: 10rem;
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+.spacing, button {
+    margin: 1rem 0.5rem;
+}
+
+
+.vertical-center {
+ padding: 25rem 0;
+}
+
+.btnSize {
+    width: 30rem;
+}
