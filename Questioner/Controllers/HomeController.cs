@@ -16,7 +16,7 @@ namespace Questioner.Controllers
             return View(db.Questions.ToList());
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Question(int? id)
         {
             if (id == null)
             {

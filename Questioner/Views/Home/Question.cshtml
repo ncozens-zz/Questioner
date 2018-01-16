@@ -1,0 +1,62 @@
+﻿@model Questioner.Models.Question
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Html.DisplayFor(model => model.Question1);
+}
+
+
+<div class="container-fluid vertical-center">
+    <div class="row">
+        
+    </div>
+    <div class="row">
+        <!-- bootstrap classes for responsiveness - these can be refactored to reduce from two to single line-->
+        <div class="col-md-12">
+            <h1 class="h1 hidden-sm hidden-xs">Q. @Html.DisplayFor(model => model.Question1)?</h1>
+            <h3 class="hidden-lg hidden-md">Q. @Html.DisplayFor(model => model.Question1)?</h3>
+        </div>
+    </div>
+    <div class="row">
+        <!-- bootstrap classes for responsiveness - these can be refactored to reduce from two to single line-->
+        <div class="col-md-6">
+            <button type="button" id="yes" class="btn btn-success btn-wide hidden-sm hidden-xs" data-toggle="modal" data-target=".bs-example-modal-sm">YES</button>
+            <button type="button" id="yes" class="btn btn-success btn-narrow hidden-lg hidden-md" data-toggle="modal" data-target=".bs-example-modal-sm">YES</button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" id="no" class="btn btn-warning btn-wide hidden-sm hidden-xs" data-toggle="modal" data-target=".bs-example-modal-sm">NO</button>
+            <button type="button" id="no" class="btn btn-warning btn-narrow hidden-lg hidden-md" data-toggle="modal" data-target=".bs-example-modal-sm">NO</button>
+        </div>
+    </div>
+</div>
+
+<!-- small modal to display confirm message -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog moda bg-warning text-center">
+            <h2>Thank you!</h2>
+        </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#yes").click(function () {
+            $.get("/api/Questions/@Model.Question1/true")
+             .success(function (data) {
+                 setTimeout(location.reload.bind(location), 1000);
+             })
+        })
+        $("#no").click(function () {
+            $.get("/api/Questions/@Model.Question1/false")
+             .success(function (data) {
+                 setTimeout(location.reload.bind(location), 1000);
+                 
+             })
+        })
+
+        $('#yes, #no').on('shown.bs.modal', function () {
+            $('#sickModal').focus()
+        })
+    });
+</script>
+

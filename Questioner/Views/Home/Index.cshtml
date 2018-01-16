@@ -5,12 +5,15 @@
 }
 
 <div class="jumbotron">
+    <!-- header row-->
     <div class="row">
         <div class="pull-left">
             <h1>Questioner</h1>
             <p class="lead">A simple system for surveying a single question.</p>
         </div>
         <form>
+
+            <!-- single input form to collect the users questions-->
             <div class="form-group pull-right">
                 <h2 for="formGroupExampleInput">Your question</h2>
                 <input type="text" class="form-control btnSize" id="formGroupExampleInput" placeholder="Enter your question">
@@ -20,16 +23,18 @@
     </div>
 </div>
 
+
+<!-- table layout to display questions and responses-->
 <div class="container table-border">
     <div class="table-striped">
         <div class="row table-head">
-            <div class="col-sm-6">
+            <div class="col-xs-8 col-md-6">
                 <h4>Question</h4>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-2 col-md-3">
                 <h4>Yes</h4>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-2 col-md-3">
                 <h4>No</h4>
             </div>
         </div>
@@ -37,13 +42,13 @@
         @foreach (var item in Model)
         {
             <div class="row row-data">
-                <div class="col-sm-6">
-                    @Html.ActionLink(item.Question1, "Details", "Home", new { id = item.id }, null)
+                <div class="col-xs-8 col-md-6">
+                    @Html.ActionLink(item.Question1, "Question", "Home", new { id = item.id }, null)
                 </div>
-                <div class="col-sm-3">
+                <div class="col-xs-2 col-md-3">
                     @Html.DisplayFor(modelItem => item.Yes)
                 </div>
-                <div class="col-sm-3">
+                <div class="col-xs-2 col-md-3">
                     @Html.DisplayFor(modelItem => item.No)
                 </div>
             </div>
@@ -60,10 +65,10 @@
             $.get("/api/Questions/" + $("#formGroupExampleInput").val())
                 .success(function (data) {
                     location.reload(true);
+                  
                 })
         })
-
-
     });
 </script>
     }
+
